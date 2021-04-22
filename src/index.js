@@ -1,5 +1,6 @@
 import './scss/style.scss';
 import 'bootstrap';
+import { Modal } from 'bootstrap';
 import { Project, Todo } from './js/models';
 
 const projectForm = document.getElementById('projectForm');
@@ -29,7 +30,6 @@ todoForm.onsubmit = (event) => {
 
   Modal.getInstance(document.getElementById('taskModal')).hide();
 };
-gitn;
 
 // Fetch all projects and display them on DOM
 Project.getAll().forEach((project) => {
