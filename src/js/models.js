@@ -9,12 +9,12 @@ export class Project {
 }
 
 export class Todo {
-  constructor(props) {
-    this.title = props.title;
-    this.date = new Date(props.date);
-    this.description = props.description;
-    this.priority = props.priority;
-    this.project = props.project;
+  constructor(date) {
+    this.title = date.title;
+    this.date = new Date(date.date);
+    this.description = date.description;
+    this.priority = date.priority;
+    this.project = date.project;
   }
 
   save() {
