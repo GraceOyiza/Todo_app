@@ -22,8 +22,14 @@ projectForm.onsubmit = (event) => {
 todoForm.onsubmit = (event) => {
   event.preventDefault();
 
-  const formData = new FormData(todoForm);
-  const newTodo = new Todo({ title });
+  const todoData = {
+    title: document.getElementById('title').value,
+    description: document.getElementById('description').value,
+    date: document.getElementById('date').value,
+    priority: document.getElementById('priority').value,
+    // project: document.getElementById('project').value
+  };
+  const newTodo = new Todo(todoData);
 
   newTodo.save();
   // appendTodo(newTodo);
@@ -39,5 +45,3 @@ Project.getAll().forEach((project) => {
   projectTab.innerText = project.name;
   projectsTree.appendChild(projectTab);
 });
-
-
