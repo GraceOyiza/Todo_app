@@ -39,3 +39,5 @@ Project.getAll().forEach((project) => {
   projectTab.innerText = project.name;
   projectsTree.appendChild(projectTab);
 });
+
+
