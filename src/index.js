@@ -1,32 +1,27 @@
-import 'bootstrap';
 import './scss/style.scss';
-// import renderDom from './data/dom';
+import 'bootstrap';
+import { Project } from './js/models';
 
-document.querySelector('#content').appendChild(renderDom());
+const projectForm = document.getElementById('projectForm');
+const projectsTree = document.getElementById('projectsTree');
 
-export default (() => {
-    const projectForm = document.getElementById('projectForm');
-    const projectsTree = document.getElementById('projectsTree');
-    
-    projectForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-    
-      const formData = new FormData(event.currentTarget);
-      const newProject = new Project(formData.get('projectName'));
-      const allProjects = Project.getAll();
-    
-      allProjects.push(newProject);
-      localStorage.setItem('projects', JSON.stringify(allProjects));
-    });
-    
-    Project.getAll().forEach((project) => {
-      const projectTab = document.createElement('button');
-    
-      projectTab.classList.add('nav-link', 'btn', 'text-left');
-      projectTab.innerText = project.name;
-    
-      projectsTree.appendChild(projectTab);
-    });
-  })();
+// Handle project form submission
+projectForm.onsubmit = (event) => {
+  event.preventDefault();
 
-  
+  const formData = new FormData(event.currentTarget);
+  const newProject = new Project(formData.get('projectName'));
+  const allProjects = Project.getAll();
+
+  allProjects.push(newProject);
+  localStorage.setItem('projects', JSON.stringify(allProjects));
+};
+
+// Fetch all projects and display them on DOM
+Project.getAll().forEach((project) => {
+  const projectTab = document.createElement('button');
+
+  projectTab.classList.add('nav-link', 'btn', 'text-left');
+  projectTab.innerText = project.name;
+  projectsTree.appendChild(projectTab);
+});
