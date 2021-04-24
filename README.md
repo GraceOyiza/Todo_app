@@ -7,7 +7,7 @@ In this project, I built a simple Todo App using Webpack and ES6 by dynamically 
 - Bootstrap
 - Jest Testing
 
-![screenshot](<(./todo.png)>)
+![screenshot](./todo.png)
 
 ## Built With
 
