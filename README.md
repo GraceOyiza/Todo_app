@@ -18,7 +18,7 @@ In this project, I built a simple Todo App using Webpack and ES6 by dynamically 
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://zealous-gates-ddd3d1.netlify.app/)
 
 ## Getting Started
 
@@ -27,15 +27,9 @@ To get a local copy of the repository please run the following commands on your 
 ```bash
 $ cd <folder>
 $ git clone
-$ cd todo
+$ cd Todo_app
 $ npm install
 $ npm run start
-```
-
-#### Run test
-
-```bash
-$ npm test
 ```
 
 ## Author
