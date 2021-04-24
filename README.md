@@ -5,7 +5,6 @@ In this project, I built a simple Todo App using Webpack and ES6 by dynamically 
 - DOM Manipulation with JavaScript
 - LocalStorage
 - Bootstrap
-- Jest Testing
 
 ![screenshot](./todo.png)
 
