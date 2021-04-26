@@ -24,8 +24,8 @@ In this project, I built a simple Todo App using Webpack and ES6 by dynamically 
 To get a local copy of the repository please run the following commands on your terminal:
 
 ```bash
-$ cd <folder>
 $ git clone
+$ cd <folder>
 $ cd Todo_app
 $ npm install
 $ npm run start
