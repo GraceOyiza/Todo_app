@@ -1,3 +1,8 @@
+function randomID() {
+  const digits = String(Math.random()).split('.')[1].substr(0, 10);
+  return `ID${digits}`;
+}
+
 export class Project {
   constructor(name) {
     this.name = name;
