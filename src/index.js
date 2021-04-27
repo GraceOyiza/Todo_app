@@ -41,13 +41,19 @@ todoForm.onsubmit = (event) => {
 };
 
 // Fetch all projects and display them on DOM
-Project.getAll().forEach((project) => {
-  const projectTab = document.createElement('button');
+const allProjects = Project.getAll();
 
-  projectTab.classList.add('nav-link', 'btn', 'text-left');
-  projectTab.innerText = project.name;
-  projectsTree.appendChild(projectTab);
-});
+if (allProjects.length > 0) {
+  allProjects.forEach((project, index) => {
+    const active = index === 0 ? true : false;
+    appendProject(project, active);
+  });
+} else {
+  const defaultProject = new Project('Default');
+
+  localStorage.setItem('projects', JSON.stringify([defaultProject]));
+  appendProject(defaultProject, true);
+}
 
 // Fetch all todos and display them on DOM
 Todo.getAll().forEach((todo) => {
