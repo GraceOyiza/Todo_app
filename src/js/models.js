@@ -6,6 +6,7 @@ function randomID() {
 export class Project {
   constructor(name) {
     this.name = name;
+    this.id = randomID();
   }
 
   static get(id) {
