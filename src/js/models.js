@@ -39,6 +39,17 @@ export class Todo {
     localStorage.setItem('todos', JSON.stringify(allTodos));
   }
 
+  delete() {
+    const allTodos = Todo.getAll();
+    const deleteTodo = allTodos.find((todo) => {
+      if (todo.id === this.id) return todo;
+    });
+
+    allTodos.splice(allTodos.indexOf(deleteTodo), 1);
+
+    localStorage.setItem('todos', JSON.stringify(allTodos));
+  }
+
   static getAll() {
     return JSON.parse(localStorage.getItem('todos')) || [];
   }
