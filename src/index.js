@@ -2,6 +2,7 @@ import './scss/style.scss';
 import 'bootstrap';
 import { Modal } from 'bootstrap';
 import { Project, Todo } from './js/models';
+import { appendTodo, appendProject } from './js/utils';
 
 const projectForm = document.getElementById('projectForm');
 const projectsTree = document.getElementById('projectsTree');
@@ -16,6 +17,8 @@ projectForm.onsubmit = (event) => {
 
   allProjects.push(newProject);
   localStorage.setItem('projects', JSON.stringify(allProjects));
+  appendProject(newProject);
+  projectForm.reset();
 };
 
 // Handle todo form submission
@@ -44,4 +47,9 @@ Project.getAll().forEach((project) => {
   projectTab.classList.add('nav-link', 'btn', 'text-left');
   projectTab.innerText = project.name;
   projectsTree.appendChild(projectTab);
+});
+
+// Fetch all todos and display them on DOM
+Todo.getAll().forEach((todo) => {
+  appendTodo(todo);
 });
