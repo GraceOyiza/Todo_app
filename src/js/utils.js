@@ -21,3 +21,4 @@ export function appendProject(project, active = false) {
   projectTab.classList.add('nav-link');
   if (active === true) projectTab.classList.add('active');
   projectTab.innerText = project.name;
+}
