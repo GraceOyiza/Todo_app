@@ -24,6 +24,12 @@ export class Todo {
     this.description = date.description;
     this.priority = date.priority;
     this.project = date.project;
+    this.id = randomID();
+  }
+
+  isValid() {
+    if (Object.values(this).every((value) => Boolean(value))) return true;
+    return false;
   }
 
   save() {
