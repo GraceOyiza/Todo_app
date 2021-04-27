@@ -1,3 +1,5 @@
+import { makeTodoCard } from './components';
+
 const parser = Range.prototype.createContextualFragment.bind(
   document.createRange(),
 );
