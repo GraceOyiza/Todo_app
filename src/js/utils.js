@@ -22,3 +22,17 @@ export function appendProject(project, active = false) {
   if (active === true) projectTab.classList.add('active');
   projectTab.innerText = project.name;
 }
+
+ // Handle click event
+  projectTab.onclick = (event) => {
+    const allTodos = Todo.getAll();
+    const ownTodos = allTodos.filter(
+      (todo) => todo.project.id === event.currentTarget.id,
+    );
+
+    document.getElementById('projectTodos').innerHTML = '';
+    ownTodos.forEach((todo) => appendTodo(todo));
+  };
+
+  projectsTree.appendChild(projectTab);
+}
