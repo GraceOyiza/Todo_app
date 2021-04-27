@@ -21,9 +21,8 @@ export function appendProject(project, active = false) {
   projectTab.classList.add('nav-link');
   if (active === true) projectTab.classList.add('active');
   projectTab.innerText = project.name;
-}
 
- // Handle click event
+  // Handle click event
   projectTab.onclick = (event) => {
     const allTodos = Todo.getAll();
     const ownTodos = allTodos.filter(
@@ -35,4 +34,9 @@ export function appendProject(project, active = false) {
   };
 
   projectsTree.appendChild(projectTab);
+}
+
+// Return the active project tab element
+export function getActiveTab() {
+  return document.querySelector('#projectsTree .nav-link.active');
 }
