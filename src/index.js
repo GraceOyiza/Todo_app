@@ -2,7 +2,7 @@ import './scss/style.scss';
 import 'bootstrap';
 import { Modal } from 'bootstrap';
 import { Project, Todo } from './js/models';
-import { appendTodo, appendProject } from './js/utils';
+import { appendTodo, appendProject, getActiveTab } from './js/utils';
 
 const projectForm = document.getElementById('projectForm');
 const projectsTree = document.getElementById('projectsTree');
@@ -30,12 +30,12 @@ todoForm.onsubmit = (event) => {
     description: document.getElementById('description').value,
     date: document.getElementById('date').value,
     priority: document.getElementById('priority').value,
-    // project: document.getElementById('project').value
+    project: Project.get(getActiveTab().id),
   };
   const newTodo = new Todo(todoData);
 
   newTodo.save();
-  // appendTodo(newTodo);
+  appendTodo(newTodo);
 
   Modal.getInstance(document.getElementById('taskModal')).hide();
 };
@@ -51,5 +51,5 @@ Project.getAll().forEach((project) => {
 
 // Fetch all todos and display them on DOM
 Todo.getAll().forEach((todo) => {
-  appendTodo(todo);
+  if (todo.project.id === getActiveTab().id) appendTodo(todo);
 });
