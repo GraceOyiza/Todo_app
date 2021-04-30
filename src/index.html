@@ -12,15 +12,15 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand " href="#">Task Manager</a>
+                <a class="navbar-brand" href="#">Task Manager</a>
             </div>
         </nav>
     </header>
 
     <main>
         <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-5">
+            <div class="row justify-content-center">
+                <div class="col-md-5 col-lg-5 col-xl-4">
                     <!-- Project form -->
                     <form class="row g-1 align-items-center" id="projectForm">
                         <div class="col">
@@ -34,25 +34,28 @@
                     </form>
 
                     <!-- All projects -->
-                    <nav class="nav nav-pill flex-column mt-4" id="projectsTree" role="tablist">
-                        <h6 class="fw-bold">All projects</h6>
+                    <nav class="nav nav-pills nav-fills flex-column mt-4" id="projectsTree" role="tablist">
+                        <h6 class="fw-bold">Projects</h6>
                     </nav>
                 </div>
                 <div class="col-md-7 col-lg-6 col-xl-5">
                     <!-- Todos -->
-                    <div class="d-flex">
+                    <div class="d-flex mb-3">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#taskModal">
                             Add new task
                         </button>
-                
+
                         <!-- Modal -->
-                        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="taskModalLabel">Add new todo</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form id="todoForm">
@@ -61,18 +64,18 @@
                                                 <input type="text" class="form-control" id="title" name="title"
                                                     placeholder="What is the title of your task?" required>
                                             </div>
-                
+
                                             <div class="mb-3">
                                                 <label for="description" class="form-label">Description</label>
-                                                <textarea class="form-control" id="description" name="description" rows="3"
-                                                    placeholder="What is your task about?" required></textarea>
+                                                <textarea class="form-control" id="description" name="description"
+                                                    rows="3" placeholder="What is your task about?" required></textarea>
                                             </div>
-                
+
                                             <div class="mb-3">
                                                 <label for="date" class="form-label">Description</label>
                                                 <input class="form-control" type="date" id="date" name="date" required>
                                             </div>
-                
+
                                             <div class="mb-3">
                                                 <label for="priority" class="form-label">Priotity</label>
                                                 <select class="form-select" id="priority" name="priority">
@@ -90,9 +93,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- list of todos -->
-                <div class="d-flex" id="projectTodos"></div>
+                    <!-- list of todos -->
+                    <div class="d-flex flex-column" id="projectTodos"></div>
                 </div>
             </div>
         </div>
