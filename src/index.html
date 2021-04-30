@@ -21,70 +21,46 @@
         <div class="container mt-4">
             <div class="row justify-content-center">
                 <div class="col-md-5 col-lg-5 col-xl-4">
-                    <!-- Project form -->
-                    <form class="row g-1 align-items-center" id="projectForm">
-                        <div class="col">
-                            <!-- <label for="projectName" class="form-label mb-0">Project Name</label> -->
-                            <input type="text" class="form-control" id="projectName" name="projectName"
-                                placeholder="New project">
-                        </div>
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </div>
-                    </form>
+                    <div class="sticky-top">
+                        <!-- Project form -->
+                        <form class="row g-1 align-items-center" id="projectForm">
+                            <div class="col">
+                                <!-- <label for="projectName" class="form-label mb-0">Project Name</label> -->
+                                <input type="text" class="form-control" id="projectName" name="projectName"
+                                    placeholder="New project" required>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </form>
 
-                    <!-- All projects -->
-                    <nav class="nav nav-pills nav-fills flex-column mt-4" id="projectsTree" role="tablist">
-                        <h6 class="fw-bold">Projects</h6>
-                    </nav>
+                        <!-- All projects -->
+                        <nav class="nav nav-pills nav-fills flex-column mt-4" id="projectsTree" role="tablist">
+                            <h6 class="fw-bold">Projects</h6>
+                        </nav>
+                    </div>
                 </div>
                 <div class="col-md-7 col-lg-6 col-xl-5">
                     <!-- Todos -->
                     <div class="d-flex mb-3">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#taskModal">
+                            data-bs-target="#todoModal">
                             Add new task
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel"
+                        <div class="modal fade" id="todoModal" tabindex="-1" aria-labelledby="todoModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="taskModalLabel">Add new todo</h5>
+                                        <h5 class="modal-title" id="todoModalLabel">Add new todo</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form id="todoForm">
-                                            <div class="mb-3">
-                                                <label for="title" class="form-label">Title</label>
-                                                <input type="text" class="form-control" id="title" name="title"
-                                                    placeholder="What is the title of your task?" required>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="description" class="form-label">Description</label>
-                                                <textarea class="form-control" id="description" name="description"
-                                                    rows="3" placeholder="What is your task about?" required></textarea>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="date" class="form-label">Description</label>
-                                                <input class="form-control" type="date" id="date" name="date" required>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="priority" class="form-label">Priotity</label>
-                                                <select class="form-select" id="priority" name="priority">
-                                                    <option value="low">Low</option>
-                                                    <option value="mid" selected>Mid</option>
-                                                    <option value="high">High</option>
-                                                </select>
-                                            </div>
-                                        </form>
+                                        <!-- Todo form when be appended by javascript when modal is shown -->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" form="todoForm" class="btn btn-primary px-5">Save</button>
