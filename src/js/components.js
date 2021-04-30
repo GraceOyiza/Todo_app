@@ -15,3 +15,34 @@ export function makeTodoCard(todo) {
       </div>
     </div>`;
 }
+
+export function makeTodoForm(todo = {}) {
+  const todoForm = parser(`
+    <form id="todoForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" value="${
+          todo.title || ''
+        }" class="form-control" id="title" name="title" placeholder="What is the title of your task?" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" placeholder="What is your task about?" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Description</label>
+        <input class="form-control" type="date" id="date" name="date" required>
+      </div>
+      <div class="mb-3">
+        <label for="priority" class="form-label">Priotity</label>
+        <select class="form-select" id="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="mid" selected>Mid</option>
+            <option value="high">High</option>
+        </select>
+      </div>
+    </form>
+  `);
+
+  return todoForm;
+}
