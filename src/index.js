@@ -1,6 +1,6 @@
 import './scss/style.scss';
-import 'bootstrap';
 import { Modal } from 'bootstrap';
+
 import Project from './js/models/project';
 import Todo from './js/models/todo';
 import { appendTodo, appendProject, getActiveTab } from './js/dom';
@@ -62,7 +62,7 @@ const allProjects = Project.getAll();
 
 if (allProjects.length > 0) {
   allProjects.forEach((project, index) => {
-    const active = index === 0 ? true : false;
+    const active = index === 0;
     appendProject(project, active);
   });
 } else {

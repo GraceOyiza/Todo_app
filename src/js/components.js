@@ -9,21 +9,21 @@ export function makeTodoCard(todo) {
         <p class="card-text">${todo.description} </p>
         <ul class="list-group">
           <li class="list-group-item py-1">Date: ${format(
-            todo.date,
-            'dd-mm-yyyy',
-          )}</li>
+    todo.date,
+    'dd-mm-yyyy',
+  )}</li>
           <li class="list-group-item py-1">Priority: ${
-            todo.priority
-          }</li>         
+  todo.priority
+}</li>         
         </ul>
       </div>
       <div class="card-footer">
         <button class="btn py-0" data-delete="${
-          todo.id
-        }"><i class="bi bi-trash"></i></button>
+  todo.id
+}"><i class="bi bi-trash"></i></button>
         <button class="btn py-0" data-update="${
-          todo.id
-        }"><i class="bi bi-pencil-fill"></i></button>
+  todo.id
+}"><i class="bi bi-pencil-fill"></i></button>
       </div>
     </div>`;
 }
@@ -34,8 +34,8 @@ export function makeTodoForm(todo = {}) {
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" value="${
-          todo.title || ''
-        }" class="form-control" id="title" name="title" placeholder="What is the title of your task?" required>
+  todo.title || ''
+}" class="form-control" id="title" name="title" placeholder="What is the title of your task?" required>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
