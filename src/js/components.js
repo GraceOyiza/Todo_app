@@ -1,3 +1,6 @@
+import { format } from 'date-fns';
+import { parser } from './utils';
+
 export function makeTodoCard(todo) {
   return ` 
     <div class="card w-100">
@@ -5,7 +8,10 @@ export function makeTodoCard(todo) {
         <h5 class="card-title">${todo.title}</h5>
         <p class="card-text">${todo.description} </p>
         <ul class="list-group">
-          <li class="list-group-item">Date: ${todo.date}</li>
+          <li class="list-group-item">Date:  ${format(
+            todo.date,
+            'dd-mm-yyyy',
+          )}</li>
           <li class="list-group-item">Priority: ${todo.priority}</li>         
         </ul>
       </div>
