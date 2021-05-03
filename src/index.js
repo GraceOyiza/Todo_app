@@ -4,10 +4,11 @@ import { Modal } from 'bootstrap';
 import Project from './js/models/project';
 import Todo from './js/models/todo';
 import { appendTodo, appendProject, getActiveTab } from './js/dom';
-import { makeTodoForm } from './js/components';
+import { editTodoForm, makeTodoForm } from './js/components';
 
 const projectForm = document.getElementById('projectForm');
 const todoModal = document.getElementById('todoModal');
+const submitEditTaskForm = document.getElementById('submitEditTaskFormBtn');
 
 // Handle project form submission
 projectForm.onsubmit = (event) => {
@@ -21,6 +22,41 @@ projectForm.onsubmit = (event) => {
   localStorage.setItem('projects', JSON.stringify(allProjects));
   appendProject(newProject);
   projectForm.reset();
+};
+
+submitEditTaskForm.onclick = () => {
+  const editTaskForm = document.getElementById('editTodoForm');
+
+  const newTitle = editTaskForm.querySelector('#title').value;
+  const newDescription = editTaskForm.querySelector('#description').value;
+  const newDate = editTaskForm.querySelector('#date').value;
+  const newPriority = editTaskForm.querySelector('#priority').value;
+
+  const todoId = editTaskForm.getAttribute('data-todoId');
+  const currentTodo = Todo.get(todoId);
+  const allTodos = Todo.getAll();
+  const updatedTodo = {
+    title: newTitle,
+    description: newDescription,
+    date: newDate,
+    priority: newPriority,
+    project: currentTodo.project,
+    id: currentTodo.id,
+  };
+
+  const updatedTodoArray = allTodos.map((todo) => {
+    if (todo.id === todoId) {
+      todo = updatedTodo;
+    }
+    return todo;
+  });
+
+  Todo.update(updatedTodoArray);
+
+  document.querySelector('#editTaskClose').click();
+
+  document.getElementById('projectTodos').innerHTML = '';
+  Todo.getAll().forEach((todo) => appendTodo(todo));
 };
 
 // Handle todo form submission

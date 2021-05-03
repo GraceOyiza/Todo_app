@@ -22,12 +22,12 @@ export default class Todo {
     localStorage.setItem('todos', JSON.stringify(allTodos));
   }
 
-  delete() {
-    const allTodos = Todo.getAll();
+  // delete() {
+  //   const allTodos = Todo.getAll();
 
-    allTodos.splice(allTodos.indexOf(this), 1);
-    localStorage.setItem('todos', JSON.stringify(allTodos));
-  }
+  //   allTodos.splice(allTodos.indexOf(this), 1);
+  //   localStorage.setItem('todos', JSON.stringify(allTodos));
+  // }
 
   static get(id) {
     return Todo.getAll().find((todo) => todo.id === id);
@@ -37,5 +37,16 @@ export default class Todo {
     const todoData = JSON.parse(localStorage.getItem('todos')) || []; // Get todos from localStorage or return empty array
 
     return todoData.map((data) => new Todo(data)); // Create Todo instances with parsed objects
+  }
+
+  static update(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  static delete(todoIndex) {
+    const allTodos = Todo.getAll();
+
+    allTodos.splice(todoIndex, 1);
+    localStorage.setItem('todos', JSON.stringify(allTodos));
   }
 }
