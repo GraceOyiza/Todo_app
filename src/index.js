@@ -9,7 +9,6 @@ const projectForm = document.getElementById('projectForm');
 const todoModal = document.getElementById('todoModal');
 const submitEditTaskForm = document.getElementById('submitEditTaskFormBtn');
 
-// Handle project form submission
 projectForm.onsubmit = (event) => {
   event.preventDefault();
 
@@ -58,14 +57,11 @@ submitEditTaskForm.onclick = () => {
   Todo.getAll().forEach((todo) => appendTodo(todo));
 };
 
-// Handle todo form submission
 todoModal.addEventListener('show.bs.modal', () => {
-  // Append form
   todoModal.querySelector('.modal-body').appendChild(makeTodoForm());
 
   const todoForm = document.getElementById('todoForm');
 
-  // Handle form submission
   todoForm.onsubmit = (event) => {
     event.preventDefault();
 
@@ -87,12 +83,10 @@ todoModal.addEventListener('show.bs.modal', () => {
   };
 });
 
-// Remove form from modal body when modal is hidden
 todoModal.addEventListener('hide.bs.modal', () => {
   todoModal.querySelector('.modal-body').innerHTML = '';
 });
 
-// Fetch all projects and display them on DOM
 const allProjects = Project.getAll();
 
 if (allProjects.length > 0) {
@@ -107,7 +101,6 @@ if (allProjects.length > 0) {
   appendProject(defaultProject, true);
 }
 
-// Fetch all todos and display them on DOM
 Todo.getAll().forEach((todo) => {
   if (todo.project.id === getActiveTab().id) appendTodo(todo);
 });

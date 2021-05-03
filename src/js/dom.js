@@ -15,8 +15,8 @@ export function appendTodo(todo, index = null) {
     const todoIndex = deleteTodo.getAttribute('data-index');
     const todo = Todo.get(todoId);
 
-    Todo.delete(todoIndex); // delete from localStorage
-    document.querySelector(`[data-todo-card=${todo.id}]`).remove(); // Remove from DOM
+    Todo.delete(todoIndex);
+    document.querySelector(`[data-todo-card=${todo.id}]`).remove();
   };
 
   editTaskBtn.onclick = () => {
@@ -27,34 +27,6 @@ export function appendTodo(todo, index = null) {
       'beforeend',
       editTodoForm(currentTodo),
     );
-
-    // editTaskForm.addEventListener('submit', () => {
-    //   e.preventDefault();
-    //   console.log('SUBMITTING O!!!!!');
-    //   const newTitle = editTaskForm.querySelector('#title').value;
-    //   const newDescription = editTaskForm.querySelector('#description').value;
-    //   const newDate = editTaskForm.querySelector('#date').value;
-    //   const newPriority = editTaskForm.querySelector('#priority').value;
-
-    //   const todoId = editTodoForm.getAttribute('data-todoId');
-    //   const currentTodo = Todo.get(todoId);
-    //   const allTodos = Toda.getAll();
-    //   const updatedTodo = {
-    //     title: newTitle,
-    //     description: newDescription,
-    //     date: newDate,
-    //     priority: newPriority,
-    //   };
-
-    //   const updatedTodoArray = allTodos.map((todo) => {
-    //     if (todo.id === todoId) {
-    //       todo = updatedTodo;
-    //     }
-    //     return todo;
-    //   });
-
-    //   Todo.update(updatedTodoArray);
-    // });
   };
 
   document.getElementById('projectTodos').appendChild(parsedHTML);
@@ -71,7 +43,6 @@ export function appendProject(project, active = false) {
   if (active === true) projectTab.classList.add('active');
   projectTab.innerText = project.name;
 
-  // Handle click event
   projectTab.onclick = (event) => {
     const allTodos = Todo.getAll();
     const ownTodos = allTodos.filter(
@@ -85,7 +56,6 @@ export function appendProject(project, active = false) {
   projectsTree.appendChild(projectTab);
 }
 
-// Return the active project tab element
 export function getActiveTab() {
   return document.querySelector('#projectsTree .nav-link.active');
 }
