@@ -22,21 +22,14 @@ export default class Todo {
     localStorage.setItem('todos', JSON.stringify(allTodos));
   }
 
-  // delete() {
-  //   const allTodos = Todo.getAll();
-
-  //   allTodos.splice(allTodos.indexOf(this), 1);
-  //   localStorage.setItem('todos', JSON.stringify(allTodos));
-  // }
-
   static get(id) {
     return Todo.getAll().find((todo) => todo.id === id);
   }
 
   static getAll() {
-    const todoData = JSON.parse(localStorage.getItem('todos')) || []; // Get todos from localStorage or return empty array
+    const todoData = JSON.parse(localStorage.getItem('todos')) || [];
 
-    return todoData.map((data) => new Todo(data)); // Create Todo instances with parsed objects
+    return todoData.map((data) => new Todo(data));
   }
 
   static update(todos) {
