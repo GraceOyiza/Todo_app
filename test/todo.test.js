@@ -1,27 +1,27 @@
-import Project from '../../src/js/models/project';
-import Todo from '../../src/js/models/todo';
+import Project from '../src/js/models/project';
+import Todo from '../src/js/models/todo';
 
 describe('todo', () => {
-  let todo = new Todo('Test todo');
+  const todo = new Todo('Test todo');
 
   describe('constructor', () => {
     it('creates a new name instance', () => {
       expect(todo instanceof Todo).toBe(true);
     });
     it('creates a new description instance', () => {
-      let description = new Todo('do well');
+      const description = new Todo('do well');
       expect(description instanceof Todo).toBe(true);
     });
     it('creates a new todo instance', () => {
-      let todo = new Todo('do well');
+      const todo = new Todo('do well');
       expect(todo instanceof Todo).toBe(true);
     });
     it('creates a new priority instance', () => {
-      let priority = new Todo('do well');
+      const priority = new Todo('do well');
       expect(priority instanceof Todo).toBe(true);
     });
     it('creates a new date instance', () => {
-      let date = new Date();
+      const date = new Date();
       expect(date instanceof Date).toBe(true);
     });
   });
@@ -34,20 +34,20 @@ describe('todo', () => {
 });
 
 describe('delete', () => {
-  let todo = 'I love yam';
-  let todoDelete = Project.getAll().lenght;
+  const todo = 'I love yam';
+  const todoDelete = Project.getAll().lenght;
   it('deletes task from localStorage', () => {
     todo.delete;
-    let todoCheck = Project.getAll().lenght;
-    todoDelete != todoCheck;
+    const todoCheck = Project.getAll().lenght;
+    todoDelete !== todoCheck;
   });
 });
 
 describe('update', () => {
   let update = 'I love yam';
-  let updateSave = update.id;
+  const updateSave = update.id;
   it('update task from localStorage', () => {
     update = 'I love yam and egg';
-    updateSave == update;
+    updateSave === update;
   });
 });

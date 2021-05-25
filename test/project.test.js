@@ -1,7 +1,7 @@
-import Project from '../../src/js/models/project';
+import Project from '../src/js/models/project';
 
 describe('Project', () => {
-  let project = new Project('Test Project');
+  const project = new Project('Test Project');
 
   describe('constructor', () => {
     it('creates a new project instance', () => {
