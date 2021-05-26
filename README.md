@@ -31,6 +31,10 @@ $ npm install
 $ npm run start
 ```
 
+## Testing
+
+To run automated tests, in your terminal, change into the directory containing this project and run this command: `npm run test`.
+
 ## Author
 
 👤 **Popoola Grace Boluwatife**
