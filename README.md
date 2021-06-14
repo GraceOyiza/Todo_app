@@ -1,4 +1,4 @@
-# Todo_app.
+# Todo_app..
 
 In this project, I built a simple Todo App using Webpack and ES6 by dynamically creating a majority of the DOM elements. Local storage was used to persist data across the user's session. It is a web application that helps you organize your task according to projects.
 
