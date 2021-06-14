@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Task Manager</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Project form -->
+                    <form class="row g-1 align-items-center" id="projectForm">
+                        <div class="col">
+                            <!-- <label for="projectName" class="form-label mb-0">Project Name</label> -->
+                            <input type="text" class="form-control" id="projectName" name="projectName"
+                                placeholder="New project">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+
+                    <!-- All projects -->
+                    <nav class="nav nav-pill flex-column mt-4" id="projectsTree">
+                        <h6>All projects</h6>
+                    </nav>
+                </div>
+                <div class="col-md-5">
+                    <!-- Todos -->
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
